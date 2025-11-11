@@ -11,8 +11,8 @@ app.use(express.json());
 
 // Conexión a MongoDB
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('✅ Conectado a MongoDB'))
-  .catch((err) => console.error('❌ Error conectando a MongoDB:', err));
+  .then(() => console.log('Conectado a MongoDB'))
+  .catch((err) => console.error('Error conectando a MongoDB:', err));
 
 // Importar rutas
 const juegosRoutes = require('./routes/juegos');
@@ -29,5 +29,5 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
