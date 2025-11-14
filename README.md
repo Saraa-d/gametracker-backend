@@ -2,7 +2,7 @@
 
 API REST para gestionar una biblioteca personal de videojuegos.
 
-## 🚀 Tecnologías
+## Tecnologías
 
 - Node.js
 - Express
@@ -15,7 +15,7 @@ API REST para gestionar una biblioteca personal de videojuegos.
 npm install
 ```
 
-## ⚙️ Configuración
+## Configuración
 
 Crear archivo `.env`:
 ```
@@ -23,7 +23,7 @@ PORT=5000
 MONGODB_URI=tu_connection_string_mongodb
 ```
 
-## ▶️ Ejecutar
+## Ejecutar
 ```bash
 # Modo desarrollo (con nodemon)
 npm run dev
@@ -32,22 +32,88 @@ npm run dev
 npm start
 ```
 
-## 📍 Endpoints
+## Endpoints
 
 ### Juegos
-- `GET /api/juegos` - Obtener todos los juegos
-- `GET /api/juegos/:id` - Obtener un juego
-- `POST /api/juegos` - Crear juego
-- `PUT /api/juegos/:id` - Actualizar juego
-- `DELETE /api/juegos/:id` - Eliminar juego
+
+#### GET /api/juegos
+Obtiene todos los juegos de la biblioteca.
+
+**Response:**
+```json
+[
+  {
+    "_id": "673e8f2a1234567890abcdef",
+    "titulo": "The Legend of Zelda",
+    "plataforma": "Nintendo Switch",
+    "estado": "completado",
+    "puntuacion": 5,
+    "horasJugadas": 120
+  }
+]
+```
+
+#### GET /api/juegos/:id
+Obtiene un juego específico por ID.
+
+#### POST /api/juegos
+Crea un nuevo juego.
+
+**Body:**
+```json
+{
+  "titulo": "Elden Ring",
+  "plataforma": "PC",
+  "genero": "RPG",
+  "estado": "jugando",
+  "puntuacion": 5,
+  "horasJugadas": 45
+}
+```
+
+#### PUT /api/juegos/:id
+Actualiza un juego existente.
+
+#### DELETE /api/juegos/:id
+Elimina un juego.
 
 ### Reseñas
-- `GET /api/resenas` - Obtener todas las reseñas
-- `GET /api/resenas/juego/:juegoId` - Obtener reseñas de un juego
-- `POST /api/resenas` - Crear reseña
-- `PUT /api/resenas/:id` - Actualizar reseña
-- `DELETE /api/resenas/:id` - Eliminar reseña
 
-## 👨‍💻 Autor
+#### GET /api/resenas
+Obtiene todas las reseñas.
 
-Proyecto final - Desarrollo Web
+#### GET /api/resenas/juego/:juegoId
+Obtiene las reseñas de un juego específico.
+
+#### POST /api/resenas
+Crea una nueva reseña.
+
+**Body:**
+```json
+{
+  "juegoId": "673e8f2a1234567890abcdef",
+  "titulo": "Obra maestra",
+  "contenido": "Excelente juego...",
+  "puntuacion": 5
+}
+```
+
+#### PUT /api/resenas/:id
+Actualiza una reseña existente.
+
+#### DELETE /api/resenas/:id
+Elimina una reseña.
+
+## Variables de Entorno
+
+- `PORT`: Puerto del servidor (default: 5000)
+- `MONGODB_URI`: Connection string de MongoDB Atlas
+
+## Deploy
+
+El backend está desplegado en Render:
+https://gametracker-backend-xxxx.onrender.com
+
+## Autor
+
+Proyecto final - Desarrollo Web Full Stack
